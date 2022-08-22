@@ -1,1 +1,1 @@
-console.log("Probando 1 2 3");
+(()=>{console.log("Probando 1 2 3");const e=document.getElementById("content"),t=document.createDocumentFragment();console.log(e);const n=document.createElement("h1");n.classList.add("logo"),n.textContent="RESTO",t.appendChild(n);const o=document.createElement("img");o.classList.add("hero-image"),o.setAttribute("src","/dist/assets/images/hero.jpg"),t.appendChild(o),e.appendChild(t)})();
