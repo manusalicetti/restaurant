@@ -1,4 +1,7 @@
-console.log('Probando 1 2 3');
+import { tabs } from './tabs';
+tabs();
+
+const $d = document;
 const $contentContainer = document.getElementById('content');
 const $fragment = document.createDocumentFragment();
 console.log($contentContainer);
@@ -12,14 +15,37 @@ console.log($contentContainer);
         </ul>
       </nav> */
 
-const $title = document.createElement('h1');
+const $title = $d.createElement('h1');
 $title.classList.add('logo');
 $title.textContent = 'RESTO';
 $fragment.appendChild($title);
 
-const $heroPicture = document.createElement('img');
+const $heroPicture = $d.createElement('img');
 $heroPicture.classList.add('hero-image');
 $heroPicture.setAttribute('src', '/dist/assets/images/hero.jpg');
 $fragment.appendChild($heroPicture);
+
+const $menu = $d.createElement('nav');
+$menu.classList.add('menu');
+$fragment.appendChild($menu);
+
+const $menuList = $d.createElement('ul');
+$menuList.classList.add('menu__list');
+$menu.appendChild($menuList);
+
+const menuItems = ['Home', 'Menu', 'Contact'];
+
+menuItems.forEach((item) => {
+  const $menuItem = document.createElement('li');
+  $menuItem.classList.add('menu__item');
+  $menuList.appendChild($menuItem);
+
+  const $menuLink = document.createElement('a');
+  $menuLink.classList.add('menu__link');
+  $menuLink.textContent = item;
+  $menuLink.setAttribute('href', '#');
+  /*  $menuItem.textContent = $menuLink; */
+  $menuItem.appendChild($menuLink);
+});
 
 $contentContainer.appendChild($fragment);
